@@ -16,6 +16,7 @@
 		36BE580A21C3B3C600AFBDC7 /* ListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BE580921C3B3C600AFBDC7 /* ListCollectionViewController.swift */; };
 		36BE580E21C3B95200AFBDC7 /* UIKit+BoxOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BE580D21C3B95200AFBDC7 /* UIKit+BoxOffice.swift */; };
 		36BE581621C3DA0000AFBDC7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BE581521C3DA0000AFBDC7 /* DetailViewController.swift */; };
+		36BE581821C3DC5300AFBDC7 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BE581721C3DC5300AFBDC7 /* ListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		36BE580921C3B3C600AFBDC7 /* ListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewController.swift; sourceTree = "<group>"; };
 		36BE580D21C3B95200AFBDC7 /* UIKit+BoxOffice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+BoxOffice.swift"; sourceTree = "<group>"; };
 		36BE581521C3DA0000AFBDC7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		36BE581721C3DC5300AFBDC7 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				36BE57EB21C3AF1C00AFBDC7 /* ListTableViewController.swift */,
+				36BE581721C3DC5300AFBDC7 /* ListTableViewCell.swift */,
 				36BE580921C3B3C600AFBDC7 /* ListCollectionViewController.swift */,
 				36BE581521C3DA0000AFBDC7 /* DetailViewController.swift */,
 			);
@@ -259,6 +262,7 @@
 				36BE581621C3DA0000AFBDC7 /* DetailViewController.swift in Sources */,
 				36BE57EA21C3AF1C00AFBDC7 /* AppDelegate.swift in Sources */,
 				36BE580E21C3B95200AFBDC7 /* UIKit+BoxOffice.swift in Sources */,
+				36BE581821C3DC5300AFBDC7 /* ListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
