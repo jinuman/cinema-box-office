@@ -18,6 +18,7 @@
 		36BE581621C3DA0000AFBDC7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BE581521C3DA0000AFBDC7 /* DetailViewController.swift */; };
 		36BE581821C3DC5300AFBDC7 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BE581721C3DC5300AFBDC7 /* ListTableViewCell.swift */; };
 		36BE581E21C644E000AFBDC7 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BE581D21C644E000AFBDC7 /* APIHandler.swift */; };
+		36BE582021C64D1400AFBDC7 /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BE581F21C64D1400AFBDC7 /* MovieList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		36BE581521C3DA0000AFBDC7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		36BE581721C3DC5300AFBDC7 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		36BE581D21C644E000AFBDC7 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		36BE581F21C64D1400AFBDC7 /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 		36BE581421C3D94500AFBDC7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				36BE581F21C64D1400AFBDC7 /* MovieList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				36BE581621C3DA0000AFBDC7 /* DetailViewController.swift in Sources */,
 				36BE57EA21C3AF1C00AFBDC7 /* AppDelegate.swift in Sources */,
 				36BE580E21C3B95200AFBDC7 /* UIKit+BoxOffice.swift in Sources */,
+				36BE582021C64D1400AFBDC7 /* MovieList.swift in Sources */,
 				36BE581821C3DC5300AFBDC7 /* ListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

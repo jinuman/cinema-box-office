@@ -10,9 +10,10 @@ import UIKit
 
 class ListTableViewController: UIViewController {
 
+    let apiHandler = APIHandler()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        apiHandler.requestList()
     }
     
 }
