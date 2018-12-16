@@ -12,8 +12,7 @@ class ListTableViewController: UIViewController {
 
     @IBOutlet weak var listTableView: UITableView!
     
-    private var movies: [Movies] = []
-    
+    private var movies = [Movies]()
     let apiHandler = APIHandler()
     
     override func viewDidLoad() {

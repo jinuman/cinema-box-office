@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ListTableViewCell: UITableViewCell {
     
@@ -18,6 +19,7 @@ class ListTableViewCell: UITableViewCell {
     
     var movies: Movies? {
         didSet {
+            guard let movies = movies else { return }
             setupCell(with: movies)
         }
     }
@@ -25,11 +27,23 @@ class ListTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    func setupCell(with movies: Movies?) {
-        thumbImageView.image = #imageLiteral(resourceName: "img_placeholder")
-        gradeImageView.image = #imageLiteral(resourceName: "ic_12")
-        titleLabel.text = movies?.title
-        infoLabel.text = movies?.listTableInfoLabelText
-        dateLabel.text = movies?.listTableDateLabelText
+    func setupCell(with movies: Movies) {
+        let imageUrl = URL(string: movies.thumb)
+        thumbImageView.kf.setImage(with: imageUrl)
+        
+        switch movies.grade {
+        case 12:
+            gradeImageView.image = #imageLiteral(resourceName: "ic_12")
+        case 15:
+            gradeImageView.image = #imageLiteral(resourceName: "ic_15")
+        case 19:
+            gradeImageView.image = #imageLiteral(resourceName: "ic_19")
+        default:
+            gradeImageView.image = #imageLiteral(resourceName: "ic_allages")
+        }
+        
+        titleLabel.text = movies.title
+        infoLabel.text = movies.listTableInfoLabelText
+        dateLabel.text = movies.listTableDateLabelText
     }
 }
