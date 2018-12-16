@@ -13,16 +13,17 @@ class APIHandler {
     private let baseUrl: String = "http://connect-boxoffice.run.goorm.io"
     private let path = (movies: "/movies", movie: "/movie", comments:"/comments")
     private let query = (orderType: "?order_type=", id: "?id=", movieId:"?movie_id=")
-    private let orderType = (reservationRate: 1, curation: 2, date: 3)
+    private let orderType = (reservationRate: 0, curation: 1, date: 2)
     
-    func requestList() {
+    func requestList(order: Int, completion: @escaping (MovieList?, Error?) -> Void) {
         let urlString: String = baseUrl + path.movies + query.orderType + String(orderType.reservationRate)
-        guard let url = URL(string: urlString) else { fatalError("URL Invalid")}
+        guard let url = URL(string: urlString) else { fatalError("URL Invalid") }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
-        let dataTask = URLSession(configuration: .default).dataTask(with: request) { data, response, error in
+        let session = URLSession(configuration: .default)
+        session.dataTask(with: request) { data, response, error in
             guard error == nil else {
                 print("Error occur: \(String(describing: error))")
                 return
@@ -34,12 +35,15 @@ class APIHandler {
             
             let decoder = JSONDecoder()
             do {
-                let result = try decoder.decode(MovieList.self, from: data)
+                let data = try decoder.decode(MovieList.self, from: data)
+                completion(data, nil)
             } catch let jsonError {
                 print("Parsing Error: \(jsonError)")
+                completion(nil, error)
             }
-            
-        }
+        }.resume()
     }
     
 }
+
+

@@ -28,6 +28,14 @@ struct Movies: Decodable {
     let thumb: String
     let reservationGrade: Int
     
+    var listTableInfoLabelText: String {
+        return "평점 : \(String(format: "%.2f", userRating)) 예매순위 : \(String(format: "%d", reservationGrade)) 예매율 : \(String(format: "%.1f", reservationRate))"
+    }
+    
+    var listTableDateLabelText: String {
+        return "개봉일 : \(date)"
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case userRating = "user_rating"

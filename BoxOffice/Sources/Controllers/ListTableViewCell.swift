@@ -16,14 +16,20 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    var movies: Movies? {
+        didSet {
+            setupCell(with: movies)
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setupCell(with movies: Movies?) {
+        thumbImageView.image = #imageLiteral(resourceName: "img_placeholder")
+        gradeImageView.image = #imageLiteral(resourceName: "ic_12")
+        titleLabel.text = movies?.title
+        infoLabel.text = movies?.listTableInfoLabelText
+        dateLabel.text = movies?.listTableDateLabelText
     }
-
 }
