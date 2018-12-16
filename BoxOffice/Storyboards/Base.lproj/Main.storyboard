@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="140" id="dqQ-gV-NBn">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListTableViewCell" rowHeight="140" id="dqQ-gV-NBn" customClass="ListTableViewCell" customModule="BoxOffice" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dqQ-gV-NBn" id="rAD-p0-wVr">
@@ -35,12 +35,6 @@
                                                         <constraint firstAttribute="width" secondItem="hPr-bc-2Ro" secondAttribute="height" multiplier="2:3" id="BXY-ca-GQL"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MovieTitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Up-Y2-sfa">
-                                                    <rect key="frame" x="100.5" y="25.5" width="96" height="24"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_12" translatesAutoresizingMaskIntoConstraints="NO" id="E0e-ke-C3n">
                                                     <rect key="frame" x="201.5" y="25" width="25" height="25"/>
                                                     <constraints>
@@ -48,6 +42,12 @@
                                                         <constraint firstAttribute="width" secondItem="E0e-ke-C3n" secondAttribute="height" multiplier="1:1" id="o4J-R3-nvs"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MovieTitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Up-Y2-sfa">
+                                                    <rect key="frame" x="100.5" y="25.5" width="96" height="24"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MovieInfo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqx-cA-EVa">
                                                     <rect key="frame" x="100.5" y="59.5" width="249.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -79,6 +79,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dateLabel" destination="mZy-hb-gia" id="MFc-0p-fs9"/>
+                                            <outlet property="gradeImageView" destination="E0e-ke-C3n" id="A7B-Ps-69X"/>
+                                            <outlet property="infoLabel" destination="pqx-cA-EVa" id="z0l-gv-upu"/>
+                                            <outlet property="thumbImageView" destination="hPr-bc-2Ro" id="zDw-FG-Obu"/>
+                                            <outlet property="titleLabel" destination="8Up-Y2-sfa" id="Q4V-ej-yPw"/>
                                             <segue destination="HvN-Kz-xyX" kind="show" identifier="showMovie" id="JEe-im-2m7"/>
                                         </connections>
                                     </tableViewCell>
@@ -165,6 +170,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8qa-xE-Vyb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="the-VC-dtm">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.24705882352941178" green="0.3411764705882353" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

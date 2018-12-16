@@ -17,3 +17,17 @@ class ListTableViewController: UIViewController {
     
 }
 
+extension ListTableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as? ListTableViewCell
+            else { fatalError("Cell Cast Invalid") }
+        
+        return cell
+    }
+    
+    
+}
