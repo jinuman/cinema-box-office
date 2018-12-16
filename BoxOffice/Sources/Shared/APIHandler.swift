@@ -8,15 +8,22 @@
 
 import Foundation
 
+enum OrderType: Int {
+    case reservationRate = 0
+    case curation = 1
+    case date = 2
+}
+
 class APIHandler {
     
     private let baseUrl: String = "http://connect-boxoffice.run.goorm.io"
     private let path = (movies: "/movies", movie: "/movie", comments:"/comments")
     private let query = (orderType: "?order_type=", id: "?id=", movieId:"?movie_id=")
-    private let orderType = (reservationRate: 0, curation: 1, date: 2)
     
-    func requestList(order: Int, completion: @escaping (MovieList?, Error?) -> Void) {
-        let urlString: String = baseUrl + path.movies + query.orderType + String(orderType.reservationRate)
+    static var orderNumber: OrderType = .reservationRate
+    
+    func requestList(order: OrderType, completion: @escaping (MovieList?, Error?) -> Void) {
+        let urlString: String = "\(baseUrl)\(path.movies)\(query.orderType)\(String(order.rawValue))"
         guard let url = URL(string: urlString) else { fatalError("URL Invalid") }
         
         var request = URLRequest(url: url)
