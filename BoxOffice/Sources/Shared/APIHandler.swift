@@ -24,13 +24,13 @@ class APIHandler {
     
     func requestList(order: OrderType, completion: @escaping (MovieList?, Error?) -> Void) {
         let urlString: String = "\(baseUrl)\(path.movies)\(query.orderType)\(String(order.rawValue))"
-        guard let url = URL(string: urlString) else { fatalError("URL Invalid") }
+        guard let url = URL(string: urlString) else { fatalError("List URL Invalid") }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
         let session = URLSession(configuration: .default)
-        session.dataTask(with: request) { data, response, error in
+        session.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
                 print("Error occur: \(String(describing: error))")
                 return
@@ -45,7 +45,37 @@ class APIHandler {
                 let data = try decoder.decode(MovieList.self, from: data)
                 completion(data, nil)
             } catch let jsonError {
-                print("Parsing Error: \(jsonError)")
+                print("List Parsing Error: \(jsonError)")
+                completion(nil, error)
+            }
+            }.resume()
+    }
+    
+    func requestDetail(id: String, completion: @escaping (MovieDetail?, Error?) -> Void) {
+        let urlString: String = "\(baseUrl)\(path.movie)\(query.id)\(id)"
+        print(urlString)
+        guard let url = URL(string: urlString) else { fatalError("Detail URL Invalid") }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        let session = URLSession(configuration: .default)
+        session.dataTask(with: request) { (data, response, error) in
+            guard error == nil else {
+                print("Error occur: \(String(describing: error))")
+                return
+            }
+            guard
+                let response = response as? HTTPURLResponse,
+                response.statusCode == 200,
+                let data = data else { return }
+            
+            let decoder = JSONDecoder()
+            do {
+                let data = try decoder.decode(MovieDetail.self, from: data)
+                completion(data, nil)
+            } catch let jsonError {
+                print("Detail Parsing Error: \(jsonError)")
                 completion(nil, error)
             }
         }.resume()

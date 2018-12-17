@@ -27,9 +27,22 @@ class ListTableViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        switch identifier {
+        case "showDetail":
+            guard
+                let detailVC = segue.destination as? DetailViewController,
+                let selectedIndexPath = listTableView.indexPathForSelectedRow
+                else { return }
+            detailVC.id = movies[selectedIndexPath.row].id
+        default:
+            break
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        listTableView.dataSource = self
         orderType = APIHandler.orderNumber
         fetchMovieList(order: orderType)
     }
@@ -91,7 +104,7 @@ extension ListTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as? ListTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as? ListTableViewCell
             else { fatalError("Cell Cast Invalid") }
         cell.movies = movies[indexPath.row]
         
